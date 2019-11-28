@@ -1,0 +1,5 @@
+rootProject.name = 'BiuosMediaPlayer'
+
+
+include ':app'
+include ':Libcore'
