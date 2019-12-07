@@ -9,15 +9,19 @@ import java.lang.annotation.Target;
 
 import static com.os.biu.core.source.SourceType.LIVE;
 import static com.os.biu.core.source.SourceType.LOOP;
+import static com.os.biu.core.source.SourceType.UNKNOWN;
 import static com.os.biu.core.source.SourceType.VOD;
 
 @Target({ElementType.TYPE,
         ElementType.FIELD,
         ElementType.METHOD,
+        ElementType.LOCAL_VARIABLE,
         ElementType.PARAMETER})
 @Retention(RetentionPolicy.SOURCE)
-@IntDef({LIVE, LOOP, VOD})
+@IntDef({UNKNOWN, LIVE, LOOP, VOD})
 public @interface SourceType {
+    int UNKNOWN = 0;
+
     int LIVE = 1 << 2;
 
     int LOOP = 1 << 3;

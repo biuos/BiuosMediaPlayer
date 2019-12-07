@@ -4,9 +4,14 @@ import com.os.biu.core.source.SourceType;
 
 public interface ICommandExtra {
 
+    // 向那么播放源发送命令, 例如:
+    //  SourceType.LIVE
+    //  SourceType.VOD
+    //  SourceType.LOOP
     @SourceType
-    int from();
+    int commandTo();
 
-    // 唯一区分的命令 code
-    int command();
+
+    // 相同播放源能唯一区分需要执行的命令
+    int commandCode();
 }

@@ -7,7 +7,7 @@ public abstract class VodPlayerListener implements IMediaPlayerListener {
 
     @SourceType
     @Override
-    public final int registerFrom() {
+    public final int attentionTo() {
         return SourceType.VOD;
     }
 

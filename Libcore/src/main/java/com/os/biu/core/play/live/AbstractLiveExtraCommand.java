@@ -7,7 +7,7 @@ public abstract class AbstractLiveExtraCommand implements ICommandExtra {
 
     @Override
     @SourceType
-    public final int from() {
+    public final int commandTo() {
         return SourceType.LIVE;
     }
 }

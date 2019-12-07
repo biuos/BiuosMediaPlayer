@@ -1,5 +1,9 @@
-rootProject.name = 'BiuosMediaPlayer'
+rootProject.name = 'BiuMediaPlayer'
 
-
-include ':app'
 include ':Libcore'
+
+include ':video:LibVod'
+include ':video:LibLive'
+include ':video:LibLoop'
+
+include ':AppDemo'

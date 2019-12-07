@@ -9,5 +9,5 @@ public interface IListenerAction<T extends IMediaPlayerListener> {
     void doAction(@NonNull T cb);
 
     @SourceType
-    int interest();
+    int actionFrom();
 }

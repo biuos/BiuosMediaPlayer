@@ -1,5 +1,6 @@
 package com.os.biu.core.media;
 
+import android.app.Application;
 import android.os.Handler;
 import android.os.Message;
 
@@ -9,21 +10,24 @@ import com.os.biu.core.source.SourceType;
 
 public abstract class AbstractPlayer implements IMediaPlayer {
 
-    protected Handler H = null;
-    protected IListenerActionRun mActionRun;
+    protected final Application App;
+    protected final Handler H;
+    protected final IListenerActionRun ActionRun;
 
-    final void setHandle(@NonNull Handler handler) {
+    protected AbstractPlayer(@NonNull Application app,
+                             @NonNull Handler handler,
+                             @NonNull IListenerActionRun actionRun) {
+        App = app;
         H = handler;
+        ActionRun = actionRun;
     }
 
-    final void setActionRun(IListenerActionRun actionRun) {
-        mActionRun = actionRun;
+    // 删除示例时需要做的清理工作
+    protected void quit() {
     }
 
     @SourceType
     public abstract int getType();
 
     protected abstract void onHandleMessage(Message msg);
-
-
 }

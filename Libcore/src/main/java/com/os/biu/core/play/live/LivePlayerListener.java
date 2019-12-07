@@ -7,9 +7,10 @@ public abstract class LivePlayerListener implements IMediaPlayerListener {
 
     @SourceType
     @Override
-    public final int registerFrom() {
+    public final int attentionTo() {
         return SourceType.LIVE;
     }
+
 
     @Override
     public String from() {

@@ -9,7 +9,7 @@ public abstract class LiveListenerAction<T extends IMediaPlayerListener>
 
     @SourceType
     @Override
-    public final int interest() {
+    public final int actionFrom() {
         return SourceType.LIVE;
     }
 }

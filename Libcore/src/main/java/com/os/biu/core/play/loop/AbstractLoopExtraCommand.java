@@ -7,7 +7,7 @@ public abstract class AbstractLoopExtraCommand implements ICommandExtra {
 
     @Override
     @SourceType
-    public final int from() {
+    public final int commandTo() {
         return SourceType.LOOP;
     }
 }
