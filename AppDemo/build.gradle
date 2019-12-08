@@ -40,6 +40,11 @@ dependencies {
     implementation project(':video:LibLive')
     implementation project(':video:LibLoop')
 
+    implementation project(':module:LibQIY')
+    implementation project(':module:LibYouKu')
+    implementation project(':module:LibPP')
+    implementation project(':module:Lib4K')
+
     implementation rootProject.ext.dependencies['appcompat']
     implementation rootProject.ext.dependencies['constraintlayout']
 

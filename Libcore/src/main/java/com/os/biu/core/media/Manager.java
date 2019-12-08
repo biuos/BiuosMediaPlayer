@@ -81,7 +81,7 @@ final class Manager {
                     PlayerInner inner = new PlayerInner(this);
                     inner.clazz = clazz;
                     inner.instance = null;
-                    mSourcePlayers.append(source, inner);
+                    mSourcePlayers.put(source, inner);
                 }
             }
         }
@@ -106,7 +106,7 @@ final class Manager {
                     if (annotation.create()) {
                         inner.createInstance();
                     }
-                    mModules.append(annotation.code(), inner);
+                    mModules.put(annotation.code(), inner);
                 }
             }
 
@@ -208,6 +208,25 @@ final class Manager {
                 long take = System.currentTimeMillis() - startTime;
                 Log.i(TAG, "init>> scan " + classCounter + " classes, take " + take + " ms.");
             }
+
+
+            //
+            StringBuilder sb = new StringBuilder();
+            sb.append("--------------------------------------------------\n");
+            sb.append("MODULE: ").append(mModules.size()).append("\n");
+            for (int i = 0, size = mModules.size(); i < size; ++i) {
+                ModuleInner inner = mModules.valueAt(i);
+                sb.append(inner).append("\n");
+            }
+            sb.append("--------------------------------------------------\n");
+            sb.append("PLAYER: ").append(mSourcePlayers.size()).append("\n");
+            for (int i = 0, size = mSourcePlayers.size(); i < size; ++i) {
+                PlayerInner inner = mSourcePlayers.valueAt(i);
+                sb.append(inner).append("\n");
+            }
+            sb.append("--------------------------------------------------\n");
+
+            Log.i(TAG, "init scan info:\n" + sb.toString());
         }
     }
 
@@ -275,6 +294,12 @@ final class Manager {
         T instance;
 
         abstract void createInstance();
+
+        @NonNull
+        @Override
+        public String toString() {
+            return "class: " + (null != clazz ? clazz : "") + ", 0x" + (null != instance ? instance.hashCode() : "00");
+        }
     }
 
     //==============================================================================================

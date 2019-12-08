@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 
 import com.os.biu.core.annitation.PlayerImplClass;
 import com.os.biu.core.definition.IDefinition;
-import com.os.biu.core.engine.IEngine;
+import com.os.biu.core.engine.IMediaPlayer;
 import com.os.biu.core.media.ICommandExtra;
 import com.os.biu.core.media.IListenerActionRun;
 import com.os.biu.core.play.loop.AbstractLoopPlayer;
@@ -76,7 +76,7 @@ final class LoopMediaPlayer extends AbstractLoopPlayer {
     }
 
     @Override
-    public List<IEngine> supportEngine() {
+    public List<IMediaPlayer> supportEngine() {
         return null;
     }
 

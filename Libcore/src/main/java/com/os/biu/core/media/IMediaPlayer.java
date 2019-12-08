@@ -3,7 +3,6 @@ package com.os.biu.core.media;
 import android.view.ViewGroup;
 
 import com.os.biu.core.definition.IDefinition;
-import com.os.biu.core.engine.IEngine;
 import com.os.biu.core.source.IMediaSource;
 
 import java.util.List;
@@ -35,7 +34,7 @@ public interface IMediaPlayer {
 
     List<IDefinition> supportDefinition();
 
-    List<IEngine> supportEngine();
+    List<com.os.biu.core.engine.IMediaPlayer> supportEngine();
 
     int getCurrentPosition();
 

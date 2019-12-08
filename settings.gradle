@@ -1,6 +1,12 @@
 rootProject.name = 'BiuMediaPlayer'
 
 include ':Libcore'
+include ':LibBusiness'
+
+include ':module:LibQIY'
+include ':module:LibYouKu'
+include ':module:LibPP'
+include ':module:Lib4K'
 
 include ':video:LibVod'
 include ':video:LibLive'

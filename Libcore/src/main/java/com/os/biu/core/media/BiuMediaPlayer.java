@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 
 import com.os.biu.core.definition.IDefinition;
-import com.os.biu.core.engine.IEngine;
+import com.os.biu.core.engine.IMediaPlayer;
 import com.os.biu.core.source.IMediaSource;
 
 import java.util.List;
@@ -106,7 +106,7 @@ public final class BiuMediaPlayer extends BiuMediaPlayerImpl {
     }
 
     @Nullable
-    public List<IEngine> supportEngine() {
+    public List<IMediaPlayer> supportEngine() {
         AbstractPlayer player = mManager.getCurrentPlayer();
         if (null == player) {
             return null;

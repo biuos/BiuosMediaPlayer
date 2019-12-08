@@ -7,6 +7,7 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.os.biu.core.annitation.PlayerImplClass;
+import com.os.biu.core.media.BiuMediaPlayer;
 import com.os.biu.core.play.live.AbstractLivePlayer;
 import com.os.biu.core.play.loop.AbstractLoopPlayer;
 import com.os.biu.core.play.vod.AbstractVodPlayer;
@@ -27,11 +28,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        new Thread(() -> {
-            ClassLoader classLoader = getClassLoader();
-            findAllPlayers4(classLoader);
-        }).start();
+        //new Thread(() -> {
+        //    ClassLoader classLoader = getClassLoader();
+        //    findAllPlayers4(classLoader);
+        //}).start();
 
+        BiuMediaPlayer.getInstance().init(this);
     }
 
 
