@@ -179,11 +179,19 @@ final class Manager {
                         continue;
                     }
 
+                    // 如果有 $ 表示内部匿名类, 相关实现类这里要求不能是匿名内部类
+                    if (className.contains("$")) {
+                        continue;
+                    }
+
                     Class<?> clazz = null;
                     try {
                         clazz = Class.forName(className);
                     } catch (ClassNotFoundException cnfe) {
                         Log.w(TAG, "init>> not found class named: " + className);
+                        clazz = null;
+                    } catch (NoClassDefFoundError mdf) {
+                        Log.w(TAG, "init>> not def found class named: " + className);
                         clazz = null;
                     }
 
@@ -327,7 +335,8 @@ final class Manager {
             }
 
             try {
-                Constructor<?> constructor = clazz.getConstructor(Application.class, Handler.class, IListenerActionRun.class);
+                Constructor<?> constructor = clazz.getDeclaredConstructor(Application.class, Handler.class, IListenerActionRun.class);
+                constructor.setAccessible(true);
                 instance = (AbstractPlayer) constructor.newInstance(manager.impl.mApp, manager.impl.H, manager.impl.mAction);
             } catch (NoSuchMethodException e1) {
                 Log.e(TAG, "PlayerInner>> NoSuchMethodException", e1);
@@ -366,7 +375,8 @@ final class Manager {
             }
 
             try {
-                Constructor<?> constructor = clazz.getConstructor(Application.class);
+                Constructor<?> constructor = clazz.getDeclaredConstructor(Application.class);
+                constructor.setAccessible(true);
                 instance = (AbstractWorkModule) constructor.newInstance(manager.impl.mApp);
             } catch (NoSuchMethodException e1) {
                 Log.e(TAG, "ModuleInner>> NoSuchMethodException", e1);

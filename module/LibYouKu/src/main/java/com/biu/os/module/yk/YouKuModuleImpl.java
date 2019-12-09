@@ -9,7 +9,7 @@ import com.biu.os.media.business.module.module;
 import com.os.biu.core.annitation.WorkModule;
 import com.os.biu.core.module.AbstractWorkModule;
 
-@WorkModule(code = module.YOUKU, create = true)
+@WorkModule(code = module.YOUKU, create = false)
 final class YouKuModuleImpl extends AbstractWorkModule {
     protected YouKuModuleImpl(@NonNull Application app) {
         super(app);
